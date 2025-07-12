@@ -1,25 +1,32 @@
-Graduation Tracker - Project Summary
-Overview:
-In this project, I was tasked with reviewing and fixing a graduation tracking system that had broken unit tests and logic issues. The goal was to clean up the code, ensure all tests pass, and follow best practices aligned with SOLID principles. This involved improving the core graduation logic and expanding test coverage to handle various student scenarios.
+# Graduation Tracker
 
-Changes Made:
-1. HasGraduated() Logic
-Fixed incorrect logic in averaging and credit counting
-Handled missing/empty course scenarios
-Used for loops with break to avoid duplicate credit counting
-2. Unit Test Improvements
-Created a single, clean test method: TestEligibilityForAllStudents()
-Used tuples with expected results to test multiple students
-Covered edge cases:
-No courses
-Missing required course
+## Overview
+This project implements a Graduation Tracker system designed to evaluate if students meet the requirements to graduate based on their courses and grades. The core logic calculates students’ average marks, credits earned, and assigns a standing (e.g., SumaCumLaude, MagnaCumLaude, Average, Remedial).
 
-Test Coverage Summary:
-Student 1: Passed, Standing - SumaCumLaude
-Student 2: Passed, Standing - MagnaCumLaude
-Student 3: Passed, Standing - Average
-Student 4: Failed, Standing - Remedial
-Student 5: Failed, Standing - Remedial (No courses)
-Student 6: Failed, Standing - MagnaCumLaude (Missing required course)
+## Objectives
+- Review and fix broken unit tests.
+- Correct graduation logic for accurate credit and standing calculation.
+- Improve code quality following clean code standards and SOLID principles.
+- Expand test coverage to include edge cases such as missing courses and no courses.
+- Organize code by moving all domain classes (`Student`, `Course`, `Diploma`, `Requirement`, `Repository`, etc.) into a dedicated `Model` folder for better maintainability and clarity.
 
-There were no significant blockers during this task. If the code depended on real databases or services, I would use tools like Moq to create fake versions of those dependencies during testing, so I can focus on testing just my logic. Additionally, I ensured the code is clean, easy to understand, and follows SOLID principles, which makes it maintainable and scalable for future requirements.
+
+## Features & Changes
+- **Graduation Logic:**  
+  Fixed the averaging and credit counting logic in the `HasGraduated` method.  
+  Improved handling of missing or empty course scenarios.  
+
+  Replaced `foreach` with `for` loops and used `break` to avoid duplicate credit counting.
+
+- **Unit Testing:**  
+  Consolidated test cases into a single comprehensive test method `TestEligibilityForAllStudents`.  
+  Used tuples to manage expected outcomes for various student scenarios.  
+  Covered edge cases including students with no courses and missing required courses.
+
+## Test Coverage Summary
+- Student 1: Passed - SumaCumLaude  
+- Student 2: Passed - MagnaCumLaude  
+- Student 3: Passed - Average  
+- Student 4: Failed - Remedial  
+- Student 5: Failed - Remedial (No courses)  
+- Student 6: Failed - MagnaCumLaude (Missing required course)

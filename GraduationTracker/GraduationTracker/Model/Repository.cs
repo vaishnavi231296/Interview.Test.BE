@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraduationTracker
+namespace GraduationTracker.Model
 {
     public class Repository
     {
@@ -124,6 +124,22 @@ namespace GraduationTracker
                     new Course{Id = 2, Name = "Science", Mark=40 },
                     new Course{Id = 3, Name = "Literature", Mark=40 },
                     new Course{Id = 4, Name = "Physichal Education", Mark=40 }
+                }
+            },
+            new Student
+            {
+                Id = 5,
+                Courses = new Course[0]
+            },
+              // Student 6: Missing required course (Literature) – should not graduate
+             new Student
+            {
+                Id = 6,
+                Courses = new Course[]
+                {
+                    new Course{Id = 1, Name = "Math", Mark=90},
+                    new Course{Id = 2, Name = "Science", Mark=90},
+                    new Course{Id = 4, Name = "Physichal Education", Mark=90} // Missing Literature
                 }
             }
 
